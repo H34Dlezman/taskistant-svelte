@@ -1,9 +1,10 @@
 import { json } from '@sveltejs/kit';
 import OpenAI from "openai";
 import type { CreateChatCompletionRequestMessage } from 'openai/resources/chat/completions';
+import { env } from '$env/dynamic/private'
 
 const openai = new OpenAI({
-    apiKey: "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", // defaults to process.env["OPENAI_API_KEY"]
+    apiKey: "", // defaults to process.env["OPENAI_API_KEY"]
 });
 
 

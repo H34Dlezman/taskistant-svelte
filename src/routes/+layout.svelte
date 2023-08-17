@@ -45,7 +45,7 @@
 	.app {
 		display: flex;
 		flex-direction: column;
-		height: 100vh;
+		height: 100%;
 	}
 
 	main {
@@ -53,10 +53,10 @@
 		display: flex;
 		flex-direction: column;
 		padding: 1rem;
-		width: 100%;
 		max-width: 64rem;
 		margin: 0 auto;
 		box-sizing: border-box;
+		width: 100%;
 		height: 100%
 	}
 

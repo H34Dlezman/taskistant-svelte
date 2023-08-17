@@ -16,8 +16,13 @@
 	color: var(--color-text);
 }
 
+html {
+	height: 100dvh;
+}
+
 body {
-	height: 100vh;
+	height: 100%;
+	overflow: hidden;
 	margin: 0;
 	background-attachment: fixed;
 	background-size: 100vw 100vh;

@@ -86,33 +86,8 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		height: 100%;
 		flex: 1;
-	}
-	#spinner-container {
-		position: fixed;
-		top: 0;
-		width: 100vw;
-		height: 100vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background-color: #00000010;
-	}
-	#spinner {
-		border: 16px solid #f3f3f3; /* Light grey */
-		border-top: 16px solid #3498db; /* Blue */
-		border-radius: 50%;
-		width: 120px;
-		height: 120px;
-		animation: spin 2s linear infinite;
-	}
-	@keyframes spin {
-		0% {
-			transform: rotate(0deg);
-		}
-		100% {
-			transform: rotate(360deg);
-		}
 	}
 
 	#prompt-input {
@@ -154,12 +129,51 @@
 		float: left;
 		text-align: left;
 	}
+	
+	#spinner-container {
+		height: 5rem;
+		max-width: 100%;
+		min-width: 20rem;
+		position: fixed;
+		bottom: 20px;
+		border-radius: 8px;
+		padding: 12px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #00000010;
+	}
+	#spinner {
+		border: 6px solid #f3f3f3; /* Light grey */
+		border-top: 6px solid #f7c900; /* Blue */
+		border-radius: 50%;
+		width: 2rem;
+		height: 2rem;
+		animation: spin 2s linear infinite;
+	}
+	@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
 
 	@media only screen and (max-width: 600px) {
 		#prompt-input {
 			height: 2rem;
 			bottom: 5px;
 			padding: 6px;
+		}
+		#spinner-container {
+			height: 2rem;
+			bottom: 5px;
+			padding: 6px;
+		}
+	    #spinner{
+			width: 1rem;
+			height: 1rem;
 		}
 		#messages {
 			margin-bottom: 4rem;
