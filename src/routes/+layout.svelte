@@ -51,13 +51,13 @@
 	main {
 		flex: 1;
 		display: flex;
+		align-items: center;
 		flex-direction: column;
 		padding: 1rem;
-		max-width: 64rem;
 		margin: 0 auto;
 		box-sizing: border-box;
 		width: 100%;
-		height: 100%
+		height: 100%;
 	}
 
 	footer {

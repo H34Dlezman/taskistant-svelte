@@ -1,7 +1,7 @@
 <script>
 	import { browser } from "$app/environment";
 	import { onMount } from "svelte";
-	async function sendPrompt(prompt, initial=false) {
+	async function sendPrompt(prompt, initial = false) {
 		loading = true;
 		const response = await fetch("/task-aisisstant", {
 			method: "POST",
@@ -22,11 +22,14 @@
 		messages = [...resp.messages];
 		localStorage.setItem("messages", JSON.stringify(messages));
 		loading = false;
-		scrollToBottom()
+		scrollToBottom();
 	}
 
 	function scrollToBottom() {
-		document.querySelector("html").scroll({top: document.querySelector("html").scrollHeight, behaviour: "smooth"})
+		document.querySelector("html").scroll({
+			top: document.querySelector("html").scrollHeight,
+			behaviour: "smooth",
+		});
 	}
 
 	export var loading = false;
@@ -35,10 +38,10 @@
 	onMount(() => {
 		var lsmsgs = browser ? localStorage.getItem("messages") : null;
 		if (lsmsgs && lsmsgs != null && lsmsgs != "") {
-			console.log("lsmsgs", lsmsgs)
+			console.log("lsmsgs", lsmsgs);
 			messages = JSON.parse(lsmsgs);
 			setTimeout(() => {
-				scrollToBottom()
+				scrollToBottom();
 			}, 200);
 		} else {
 			sendPrompt("Hi there", true);
@@ -87,6 +90,8 @@
 		justify-content: center;
 		align-items: center;
 		height: 100%;
+		width: 100%;
+		max-width: 64rem;
 		flex: 1;
 	}
 
@@ -108,7 +113,15 @@
 		flex: 1;
 		width: 100%;
 		list-style-type: none;
-		margin-bottom: 100px;
+		margin: 0;
+    	padding: 0 0 13rem 0;
+		overflow-y: scroll;
+		overflow-x: visible;
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+	#messages::-webkit-scrollbar {
+		display: none;
 	}
 
 	.chat-li {
@@ -116,7 +129,7 @@
 		min-height: 5rem;
 		box-shadow: 0px 0px 12px -7px rgb(0 0 0 / 75%);
 		border-radius: 15px;
-		margin: 15px 0;
+		margin: 15px 5px;
 		padding: 20px;
 	}
 
@@ -129,7 +142,7 @@
 		float: left;
 		text-align: left;
 	}
-	
+
 	#spinner-container {
 		height: 5rem;
 		max-width: 100%;
@@ -171,12 +184,12 @@
 			bottom: 5px;
 			padding: 6px;
 		}
-	    #spinner{
+		#spinner {
 			width: 1rem;
 			height: 1rem;
 		}
 		#messages {
-			margin-bottom: 4rem;
+    		padding: 0 0 5rem 0;
 		}
 	}
 </style>
